@@ -1,0 +1,1 @@
+// onclick event listener on play button, start next page

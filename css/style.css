@@ -1,0 +1,86 @@
+html, body {
+    height: 100vh; 
+    margin: auto 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 800px;
+}
+
+button {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: white;
+    color: blue;
+    border: 2px double darkorange;
+    border-radius: 15px;
+    font-size: 20px;
+  }
+
+
+  /* ================================================================== */
+
+td {
+    height: 100px;
+    width: 100px;
+    border-radius: 25%;
+
+  }
+
+  /* td div {
+    margin: 0 auto;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    pointer-events: none;
+  } */
+ 
+/* table columns */
+  tr td:first-child {
+    border-left: 4px solid rgb(85, 123, 134);
+    border-right: 4px solid rgb(85, 123, 134);
+  }
+
+  tr td:nth-child(2) {
+    border-left: 4px solid rgb(85, 123, 134);
+    border-right: 4px solid rgb(85, 123, 134);
+  }
+
+  tr td:nth-child(3) {
+    border-left: 4px solid rgb(85, 123, 134);
+    border-right: 4px solid rgb(85, 123, 134);
+  }
+
+  tr td:last-child {
+    border-left: 4px solid rgb(85, 123, 134);
+    border-right: 4px solid rgb(85, 123, 134);
+  }
+
+  /* table rows  */
+  tr:first-child td {
+    border-top: 4px solid grey;
+    /* border-bottom: 4px solid grey; */
+  } 
+  
+  tr:nth-child(2) td {
+    border-top: 4px solid grey;
+    /* border-bottom: 4px solid grey; */
+  } 
+  
+  tr:nth-child(3) td {
+    border-top: 4px solid grey;
+    /* border-bottom: 4px solid grey; */
+  } 
+  
+  tr:last-child td {
+    border-top: 4px solid grey;
+  } 
