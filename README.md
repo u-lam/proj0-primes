@@ -17,9 +17,9 @@ User Story:
 
         i. For round 1, the numbers will range from 2-25, giving the user the possibility of up to 9 prime numbers. 
 
-        ii. For round 2, the numbers will range from 2-50, giving the user the possibility of up to 24 prime numbers.
+        ii. For round 2, the numbers will range from 2-50, giving the user the possibility of up to 15 prime numbers.
 
-        iii. For round 3, the numbers will range from 2-100, giving the user the possibility of up to 34 prime numbers.
+        iii. For round 3, the numbers will range from 2-100, giving the user the possibility of up to 25 prime numbers.
 
     3. User will click to select the numbers. 
         i. If user selects a non-prime number, game ends. 
