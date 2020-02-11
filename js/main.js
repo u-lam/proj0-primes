@@ -3,21 +3,36 @@ let board = new Array(16);
 let win;
 let lose;
 
+// Buttons
+// onclick event listener on play button, start next page
+// let btn = document.getElementById("button");
+// btn.addEventListener("click", init)
+
+
 const game = {
-    board: [],
-    allIntegers: [],
-    allPrimes: [],
-    roundOneNum: [],
-    roundOnePrimes: [],
-    roundTwoPrimes: [],
-    roundThreePrimes: [],
-    // generate all numbers from 2-100, in order, push to allIntegers.
-    createNum: function() {
-        for (let i = 2; i <= 100; i++) {
-            this.allIntegers.push(i);
-        }
-    },
-    // generate all PRIMEs from 2-100, in order, push to allPrimes.
+    
+}
+    
+
+
+//checking to make sure all is working
+// game.logPrime();
+// game.createNum();
+// game.init();
+// console.log(game.allPrimes);
+// console.log(game.allIntegers);
+
+// console.log(board);
+
+
+// Round 1 - 11 nonP, 5 P, 
+
+const roundOne = {
+    isPrimeSet: [],
+    isNotPrimeSet: [],
+    boardPrimes: [],
+    boardNotPrimes: [],
+    boardComplete: [],
     checkPrime: function(x) {
         for (i = 2; i < x; i++) {  
             if (x % i === 0) {  
@@ -26,80 +41,146 @@ const game = {
         }
         return true;
     },
-    logPrime: function() {
-        for (let j = 2; j <= 100; j++) {
-            if (this.checkPrime(j) === true) {
-                this.allPrimes.push(j);
+    rOneGenerateNum: function() {
+        for (let j = 2; j <= 25; j++) {
+            if (checkPrime(j) === true) {
+                this.isPrimeSet.push(j);
+            } else {
+                this.isNotPrimeSet.push(j);
             }
         }
     },
-
-    init: function() {
-        
-        //this.roundOneNum = Array.from(uniqueNum); //turning the set into an array
+    assignNum: function() {
+        for (let i = 0; i < 5; i++) {
+            let x = Math.floor(Math.random() * this.isPrimeSet.length);
+            this.boardPrimes.push(this.isPrimeSet[x]);
+            this.isPrimeSet.splice(x, 1);
+        }
+        for (let j = 0; j < 11; j++) {
+            let y = Math.floor(Math.random() * this.isNotPrimeSet.length);
+            this.boardNotPrimes.push(this.isNotPrimeSet[y])
+            this.isNotPrimeSet.splice(y, 1);
+        }
+    },
+    combineNum: function() {
+        this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
     }
 }
-    
+
+roundOne.rOneGenerateNum();
+roundOne.assignNum();
+roundOne.combineNum();
+console.log(roundOne.boardComplete);
+
+const roundTwo = {
+    isPrimeSet: [],
+    isNotPrimeSet: [],
+    boardPrimes: [],
+    boardNotPrimes: [],
+    boardComplete: [],
+    checkPrime: function(x) {
+        for (i = 2; i < x; i++) {  
+            if (x % i === 0) {  
+                return false;
+            } 
+        }
+        return true;
+    },
+    generateNum: function() {
+        for (let j = 2; j <= 50; j++) {
+            if (checkPrime(j) === true) {
+                this.isPrimeSet.push(j);
+            } else {
+                this.isNotPrimeSet.push(j);
+            }
+        }
+    },
+    assignNum: function() {
+        for (let i = 0; i < 6; i++) {
+            let x = Math.floor(Math.random() * this.isPrimeSet.length);
+            this.boardPrimes.push(this.isPrimeSet[x]);
+            this.isPrimeSet.splice(x, 1);
+        }
+        for (let j = 0; j < 10; j++) {
+            let y = Math.floor(Math.random() * this.isNotPrimeSet.length);
+            this.boardNotPrimes.push(this.isNotPrimeSet[y])
+            this.isNotPrimeSet.splice(y, 1);
+        }
+    },
+    combineNum: function() {
+        this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
+    }
+
+}
+// roundTwo.generateNum();
+// roundTwo.assignNum();
+// console.log(roundTwo.boardComplete);
 
 
-//checking to make sure all is working
-game.logPrime();
-game.createNum();
-game.init();
-// console.log(game.allPrimes);
-// console.log(game.allIntegers);
+const roundThree = {
+    isPrimeSet: [],
+    isNotPrimeSet: [],
+    boardPrimes: [],
+    boardNotPrimes: [],
+    boardComplete: [],
+    checkPrime: function(x) {
+        for (i = 2; i < x; i++) {  
+            if (x % i === 0) {  
+                return false;
+            } 
+        }
+        return true;
+    },
+    generateNum: function() {
+        for (let j = 2; j <= 100; j++) {
+            if (checkPrime(j) === true) {
+                this.isPrimeSet.push(j);
+            } else {
+                this.isNotPrimeSet.push(j);
+            }
+        }
+    },
+    assignNum: function() {
+        for (let i = 0; i < 7; i++) {
+            let x = Math.floor(Math.random() * this.isPrimeSet.length);
+            this.boardPrimes.push(this.isPrimeSet[x]);
+            this.isPrimeSet.splice(x, 1);
+        }
+        for (let j = 0; j < 9; j++) {
+            let y = Math.floor(Math.random() * this.isNotPrimeSet.length);
+            this.boardNotPrimes.push(this.isNotPrimeSet[y])
+            this.isNotPrimeSet.splice(y, 1);
+        }
+    },
+    combineNum: function() {
+        this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
+    }
 
-console.log(board);
+}
+// roundThree.generateNum();
+// roundThree.assignNum();
+// console.log(roundThree.boardComplete);
+
+// FUNCTIONS
+function checkPrime(x) {
+    for (i = 2; i < x; i++) {  
+        if (x % i === 0) {  
+            return false;
+        } 
+    }
+    return true;
+}
 
 
-
-// function init() {
-//     // randomize the Integers array
-//     for (let i = 0; i < 16; i++) {
-//         let randNum = Math.floor(Math.random() * 25) + 2;
-//             this.roundOneNum.add(randNum);
-            
-            
-        
-//     // pull out 16 numbers
-//     // insert into board
-//     }
-//     this.roundOneNum = Array.from(this.roundOneNum);
-// }
-
-
-
-
-
-// onclick event listener on play button, start next page
-// let btn = document.getElementById("button");
-// btn.addEventListener("click", init)
-
-
-// let board = [];
-// let roundOne = [];
-// while (board.length < 17) {
-//         let randPick = Math.floor(Math.random() * 25) + 1;  
-//         if (roundOne.indexOf(randPick) === -1 ) {
-//         roundOne.push(randPick);
-//         }
-//     return roundOne;
-//     console.log(roundOne);
-// } 
-
-
+// Piping this on the page
 // for (let i = 0; i < 16; i++) {
-    // document.getElementById(`sq${i}`).innerText = roundOne[randPick]; 
-    // document.getElementById('sq1').innerText = roundOne[randPick]; 
-    // document.getElementById('sq2').innerText = roundOne[i]; 
-    // document.getElementById('sq3').innerText = roundOne[i]; 
-    // document.getElementById('sq4').innerText = roundOne[i]; 
-    // document.getElementById('sq5').innerText = roundOne[i]; 
+//     document.getElementById(`sq${i}`).innerText = roundOne[randPick]; 
+//     document.getElementById('sq1').innerText = roundOne[randPick]; 
+//     document.getElementById('sq2').innerText = roundOne[i]; 
+//     document.getElementById('sq3').innerText = roundOne[i]; 
+//     document.getElementById('sq4').innerText = roundOne[i]; 
+//     document.getElementById('sq5').innerText = roundOne[i]; 
 // }
 
-// Functions
-// init: function() {
-//     //generate game board with 16 random numbers
-// }
 
 
