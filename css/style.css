@@ -1,7 +1,7 @@
-html {
+/* html {
     height: 100vh; 
     margin: auto 0;
-}
+} */
 
 h3 {
     text-align: center;
@@ -19,13 +19,17 @@ body {
 button {
     margin-top: 30px;
     padding: 15px;
-    background-color: white;
+    background-color: lightgreen;
     color: blue;
     border: 2px double darkorange;
     border-radius: 15px;
     font-size: 20px;
   }
 
+  #btnPlay {
+    position: relative;
+    left: 350px;
+  }
 
   /* ======================== GRID ========================================== */
 
@@ -33,6 +37,11 @@ td {
     height: 100px;
     width: 100px;
     border-radius: 25%;
+    font-family: Helvetica, "sans-serif";
+    font-size: 30px;
+    text-align: center;
+    color: rgb(16, 51, 148);
+    background-color: azure;
 
   }
 
