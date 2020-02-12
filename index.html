@@ -13,14 +13,19 @@
     <h1>I can't even...!</h1>
 
 <!-- definition/ need to style -->
-    <div class="page0">
+    <div id="page0">
     <h3>Definition: A prime number is any positive integer (except 0 or 1) that is not divisible
          without remainder by any other integer except 1 and itself.</h3> 
     <button id="btnPlay"><b>Play</b></button>
+    <!-- <i class="far fa-play-circle"></i>
+    <span class="fas fa-play-circle"></span> -->
 
     </div>
 <!-- On next page after clicking Play, display grid 4x4 , querySelectAll tds and loop it by the class, use alt for index-->
-    <table class="game">
+    <div id="game">
+
+        <h3>Click to select all the prime numbers on the board.</h3>
+    <table id="game-board">
         <tr>
             <td id="sq0" value="">
                 <div></div>
@@ -81,6 +86,7 @@
             </td>
         </tr>
     </table>
+    </div>
 
 </body>
 </html>

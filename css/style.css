@@ -12,24 +12,39 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 800px;
-    height: 800px;
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    font-family: Helvetica, "sans-serif";
 }
 
 button {
     margin-top: 30px;
     padding: 15px;
-    background-color: lightgreen;
     color: blue;
     border: 2px double darkorange;
     border-radius: 15px;
     font-size: 20px;
   }
 
-  #btnPlay {
-    position: relative;
-    left: 350px;
+  button:hover {
+      background-color: lightgreen;
   }
+
+  #btnPlay {
+    position: relative; 
+    left: 263px;
+    /* margin: 0 auto; */
+  }
+  #game {
+      display: none;
+  }
+
+  #game.show {
+      display: block;
+  }
+
+
 
   /* ======================== GRID ========================================== */
 

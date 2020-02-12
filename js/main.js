@@ -1,14 +1,24 @@
-// Variables
-// let board = new Array(16);
-// let win;
-// let lose;
+// VARIABLES
+let count = 0;
+const lookupPrimes = [ 2,  3,  5,  7, 11, 13, 17, 19,
+    23, 29, 31, 37, 41, 43, 47, 53,
+    59, 61, 67, 71, 73, 79, 83, 89, 97 ]
 
 
-//NOT SURE HOW TO PUT ALL ROUNDS TOGETHER IN ONE GAME CONST
+// BUTTONS & EVENTS
+
+let btn = document.getElementById("btnPlay");
+btn.addEventListener("click", init);
+let playGame = document.getElementById("game");
+let squares = document.querySelectorAll("td");
+
+
+//NOT SURE HOW TO PUT ALL ROUNDS TOGETHER IN ONE GAME CONST ??
 const game = {
-    
+   
 }
-    
+
+
 
 const roundOne = {
     isPrimeSet: [],
@@ -58,14 +68,6 @@ const roundOne = {
     } 
 }
 
-
-function init() {
-    // squares = document.querySelectorAll('td')
-    roundOne.rOneGenerateNum();
-    roundOne.assignNum();
-    roundOne.fillBoard();
-}
-
 const roundTwo = {
     isPrimeSet: [],
     isNotPrimeSet: [],
@@ -80,7 +82,7 @@ const roundTwo = {
         }
         return true;
     },
-    generateNum: function() {
+    generateNum: function() {   // different for each round
         for (let j = 2; j <= 50; j++) {
             if (this.checkPrime(j) === true) {
                 this.isPrimeSet.push(j);
@@ -89,7 +91,7 @@ const roundTwo = {
             }
         }
     },
-    assignNum: function() {
+    assignNum: function() {   // different for each round
         for (let i = 0; i < 6; i++) {
             let x = Math.floor(Math.random() * this.isPrimeSet.length);
             this.boardPrimes.push(this.isPrimeSet[x]);
@@ -108,8 +110,8 @@ const roundTwo = {
     },
     fillBoard: function() {
         for (let i = 0; i < 16; i++) {
-            document.getElementById(`sq${i}`).innerText = roundOne.boardComplete[i]; 
-            document.getElementById(`sq${i}`).setAttribute(value, `${roundOne.boardComplete[i]}`);
+            document.getElementById(`sq${i}`).innerText = this.boardComplete[i]; 
+            document.getElementById(`sq${i}`).setAttribute('value', `${this.boardComplete[i]}`);
         }
     }
 }
@@ -117,7 +119,6 @@ const roundTwo = {
 // roundTwo.assignNum();
 // roundTwo.fillBoard();
 // console.log(roundTwo.boardComplete);
-
 
 const roundThree = {
     isPrimeSet: [],
@@ -133,7 +134,7 @@ const roundThree = {
         }
         return true;
     },
-    generateNum: function() {
+    generateNum: function() {  // different for each round
         for (let j = 2; j <= 100; j++) {
             if (this.checkPrime(j) === true) {
                 this.isPrimeSet.push(j);
@@ -142,7 +143,7 @@ const roundThree = {
             }
         }
     },
-    assignNum: function() {
+    assignNum: function() {  // different for each round
         for (let i = 0; i < 7; i++) {
             let x = Math.floor(Math.random() * this.isPrimeSet.length);
             this.boardPrimes.push(this.isPrimeSet[x]);
@@ -171,65 +172,61 @@ const roundThree = {
 // roundThree.fillBoard();
 // console.log(roundThree.boardComplete);
 
+
+// ---------->   RUN FULL GAME HERE   <-----------
+
+function init() {
+    playGame.style.display = (playGame.dataset.toggled ^= 1) ? "block" : "none";;
+    document.getElementById("page0").remove();
+    roundOne.rOneGenerateNum();
+    roundOne.assignNum();
+    roundOne.fillBoard();
+    checkForPrime();
+}
+
+function nxtRound() {
+    roundTwo.generateNum();
+    roundTwo.assignNum();
+    roundTwo.fillBoard();
+    
+   
+}
+
+
+
 // FUNCTIONS
-// function checkPrime(x) {
-//     for (i = 2; i < x; i++) {  
-//         if (x % i === 0) {  
-//             return false;
-//         } 
-//     }
-//     return true;
-// }
 
-
-// BUTTONS
-
-// When play button is clicked, start round one -- DONE
-let btn = document.getElementById("btnPlay");
-btn.addEventListener("click", init);
-
-
-// for each square, add an event listener to run the checkForPrime func
-
-
-// Checking if clicked sq is a prime number
-const lookupPrimes = [ 2,  3,  5,  7, 11, 13, 17, 19,
-                    23, 29, 31, 37, 41, 43, 47, 53,
-                    59, 61, 67, 71, 73, 79, 83, 89, 97 ]
-
-
-// let squares = document.querySelectorAll('td div');
-// let squares = [];
-// for (let i = 0; i < 16; i++) {
-//    let a = document.getElementById(`sq${i}`).getAttribute(value);
-//     squares.push(a);
-// }
-let squares = document.querySelectorAll("td");
-console.log(squares)
-
+//add all items selected to an array and check it against 
 
 //START WORK HERE!!!
-// after clicking a number, use event.target.getAttribute to check that number against the lookupPrimes
 function checkForPrime() {
-    for (let i = 0; i < 16; i++) {
-        squares[i].addEventListener('click', function(){
+    document.getElementById('game-board').addEventListener('click', function(event){
+        console.log(event.target.getAttribute('value'))
             // console.log(event.target.getAttribute('value'))
             if(lookupPrimes.includes(parseInt(event.target.getAttribute('value')))) {
-                console.log('hello');
-           };
-        })
+                
+                count++ ; 
+                console.log(count);
+                
+                //gray out button and disable it from being clicked
+                // event.target.removeAttribute("disabled");
+
+                win();
+           } else {
+                alert("You selected a number that is not prime. Game over!")
+                location.reload();
+           }
+       
+          
+    })
+    
+}
+
+function win() {
+    if (count === 5) {
+        alert("Nice! Click OK to move on to the next round.");
+        count = 0
+        nxtRound();
     }
 }
-checkForPrime();                  
-
-
-// for (let i = 0; i < 16; i++) {
-//     squares.push(document.getElementById(`sq${i}`));
-//     // console.log(squares);
-// }
-
-
-
-// FUNCTIONS
-
 
