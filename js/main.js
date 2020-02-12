@@ -45,13 +45,21 @@ const roundOne = {
             this.isNotPrimeSet.splice(y, 1);
         }
         this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
+        this.boardComplete.sort(this.sortfunc);  
+    },
+    sortfunc: function(a, b) {
+        return 0.5 - Math.random();
     },
     fillBoard: function() {
         for (let i = 0; i < 16; i++) {
             document.getElementById(`sq${i}`).innerText = roundOne.boardComplete[i]; 
+            document.getElementById(`sq${i}`).setAttribute(value, `${roundOne.boardComplete[i]}`);
         }
     }
 }
+
+
+
 
 function init() {
     roundOne.rOneGenerateNum();
@@ -75,7 +83,7 @@ const roundTwo = {
     },
     generateNum: function() {
         for (let j = 2; j <= 50; j++) {
-            if (checkPrime(j) === true) {
+            if (this.checkPrime(j) === true) {
                 this.isPrimeSet.push(j);
             } else {
                 this.isNotPrimeSet.push(j);
@@ -94,10 +102,15 @@ const roundTwo = {
             this.isNotPrimeSet.splice(y, 1);
         }
         this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
+        this.boardComplete.sort(this.sortfunc);  
+    },
+    sortfunc: function(a, b) {
+        return 0.5 - Math.random();
     },
     fillBoard: function() {
         for (let i = 0; i < 16; i++) {
             document.getElementById(`sq${i}`).innerText = roundOne.boardComplete[i]; 
+            document.getElementById(`sq${i}`).setAttribute(value, `${roundOne.boardComplete[i]}`);
         }
     }
 }
@@ -123,7 +136,7 @@ const roundThree = {
     },
     generateNum: function() {
         for (let j = 2; j <= 100; j++) {
-            if (checkPrime(j) === true) {
+            if (this.checkPrime(j) === true) {
                 this.isPrimeSet.push(j);
             } else {
                 this.isNotPrimeSet.push(j);
@@ -142,10 +155,15 @@ const roundThree = {
             this.isNotPrimeSet.splice(y, 1);
         }
         this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
+        this.boardComplete.sort(this.sortfunc);  
+    },
+    sortfunc: function(a, b) {
+        return 0.5 - Math.random();
     },
     fillBoard: function() {
         for (let i = 0; i < 16; i++) {
             document.getElementById(`sq${i}`).innerText = roundOne.boardComplete[i]; 
+            document.getElementById(`sq${i}`).setAttribute(value, `${roundOne.boardComplete[i]}`);
         }
     }
 }
@@ -168,13 +186,35 @@ const roundThree = {
 // BUTTONS
 
 // When play button is clicked, start round one -- DONE
-// let btn = document.getElementById("btnPlay");
-// btn.addEventListener("click", init);
+let btn = document.getElementById("btnPlay");
+btn.addEventListener("click", init);
+
+
+// for each square, add an event listener to run the checkForPrime func
+
 
 // Checking if clicked sq is a prime number
+const lookupPrimes = [ 2,  3,  5,  7, 11, 13, 17, 19,
+                    23, 29, 31, 37, 41, 43, 47, 53,
+                    59, 61, 67, 71, 73, 79, 83, 89, 97 ]
+
+let board;
+// let squares = document.querySelectorAll('td div');
 let squares = [];
-for (let i = 0; i < 16; i++) {
-    squares = document.getElementById(`sq${i}`);
+
+
+                    
+// function checkForPrime() {
+//     let index = parseInt(event.target.id.replace('sq', ''));
+//     for (let i = 0; i < 16; i++) {
     
-}
-console.log(squares);
+//        if(boardComplete[index] = lookupPrimes[]
+//     })
+// }
+
+
+// for (let i = 0; i < 16; i++) {
+//     squares.push(document.getElementById(`sq${i}`));
+//     // console.log(squares);
+// }
+
