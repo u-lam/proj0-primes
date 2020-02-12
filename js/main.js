@@ -52,16 +52,15 @@ const roundOne = {
     },
     fillBoard: function() {
         for (let i = 0; i < 16; i++) {
-            document.getElementById(`sq${i}`).innerText = roundOne.boardComplete[i]; 
-            document.getElementById(`sq${i}`).setAttribute(value, `${roundOne.boardComplete[i]}`);
+            document.getElementById(`sq${i}`).innerText = this.boardComplete[i]; 
+            document.getElementById(`sq${i}`).setAttribute('value', this.boardComplete[i]);
         }
-    }
+    } 
 }
 
 
-
-
 function init() {
+    // squares = document.querySelectorAll('td')
     roundOne.rOneGenerateNum();
     roundOne.assignNum();
     roundOne.fillBoard();
@@ -162,8 +161,8 @@ const roundThree = {
     },
     fillBoard: function() {
         for (let i = 0; i < 16; i++) {
-            document.getElementById(`sq${i}`).innerText = roundOne.boardComplete[i]; 
-            document.getElementById(`sq${i}`).setAttribute(value, `${roundOne.boardComplete[i]}`);
+            document.getElementById(`sq${i}`).innerText = this.boardComplete[i]; 
+            document.getElementById(`sq${i}`).setAttribute(value, `${this.boardComplete[i]}`);
         }
     }
 }
@@ -198,23 +197,39 @@ const lookupPrimes = [ 2,  3,  5,  7, 11, 13, 17, 19,
                     23, 29, 31, 37, 41, 43, 47, 53,
                     59, 61, 67, 71, 73, 79, 83, 89, 97 ]
 
-let board;
+
 // let squares = document.querySelectorAll('td div');
-let squares = [];
-
-
-                    
-// function checkForPrime() {
-//     let index = parseInt(event.target.id.replace('sq', ''));
-//     for (let i = 0; i < 16; i++) {
-    
-//        if(boardComplete[index] = lookupPrimes[]
-//     })
+// let squares = [];
+// for (let i = 0; i < 16; i++) {
+//    let a = document.getElementById(`sq${i}`).getAttribute(value);
+//     squares.push(a);
 // }
+let squares = document.querySelectorAll("td");
+console.log(squares)
+
+
+//START WORK HERE!!!
+// after clicking a number, use event.target.getAttribute to check that number against the lookupPrimes
+function checkForPrime() {
+    for (let i = 0; i < 16; i++) {
+        squares[i].addEventListener('click', function(){
+            // console.log(event.target.getAttribute('value'))
+            if(lookupPrimes.includes(parseInt(event.target.getAttribute('value')))) {
+                console.log('hello');
+           };
+        })
+    }
+}
+checkForPrime();                  
 
 
 // for (let i = 0; i < 16; i++) {
 //     squares.push(document.getElementById(`sq${i}`));
 //     // console.log(squares);
 // }
+
+
+
+// FUNCTIONS
+
 
