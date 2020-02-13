@@ -243,12 +243,8 @@ function finalRound() {   //must select all 7 primes to continue
     roundThree.fillBoard();
 }
 
-
 //BLOCKERS:
-// 1. how to gray out selected tiles?  -- use style.background on line 267 - DONE
-// 2. how to make tile NOT clickable?   -- if statement - DONE
-// 3. how to clear the 2 features above for the next round?
-// 4. how to make this DRY?
+// 1.. how to make this DRY?  == weekend project?
 
 // FUNCTIONS
 function checkForPrime() {
@@ -260,11 +256,8 @@ function checkForPrime() {
                 selectedPrimes.push(event.target.getAttribute('value'));
                 console.log(selectedPrimes);
                 count++ ; 
-
-                //gray out td
                 event.target.style.background = "lightgrey";
                 event.target.style.cursor = 'not-allowed';
-                
                 win();
             } else {
                     alert("You selected a number that is not prime. Game over!")
@@ -273,7 +266,6 @@ function checkForPrime() {
         }  
         
     })
-    // event.target.style.background = 'red';
 }
 
 function win() {
