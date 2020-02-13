@@ -230,6 +230,7 @@ function init() {
 }
 
 function nxtRound() {
+
     roundTwo.generateNum();
     roundTwo.assignNum();
     roundTwo.fillBoard();
@@ -242,52 +243,43 @@ function finalRound() {
 }
 
 
-
-
-
 //BLOCKERS:
-// 1. how to gray out selected tiles?  -- use style.background on line 267
-// 2. how to make tile NOT clickable?   -- if statement 
+// 1. how to gray out selected tiles?  -- use style.background on line 267 - DONE
+// 2. how to make tile NOT clickable?   -- if statement - DONE
 // 3. how to clear the 2 features above for the next round?
 // 4. how to make this DRY?
 
 // FUNCTIONS
 function checkForPrime() {
-    clicks.addEventListener('click', function xyz(event){
-        console.log(event.target)
-            console.log(event.target.getAttribute('value'))
-            if (!selectedPrimes.includes(event.target.getAttribute('value'))) {
+    clicks.addEventListener('click', function (event){
+        // console.log(event.target)
+        // console.log(event.target.getAttribute('value'))
+        if (!selectedPrimes.includes(event.target.getAttribute('value'))) {
             if(lookupPrimes.includes(parseInt(event.target.getAttribute('value')))) {
                 selectedPrimes.push(event.target.getAttribute('value'));
-                //event.target.getAttribute('value').setAttribute("disabled", "disabled");
                 console.log(selectedPrimes);
                 count++ ; 
-                console.log(count);
-
-
-// if selected prime, include this. If it does not
-// "style = cursor, default"
 
                 //gray out td
-                // event.target.style.background = "lightgrey";
+                event.target.style.background = "lightgrey";
+                event.target.style.cursor = 'not-allowed';
                 
-        
-
                 win();
-               
-           } else {
-                alert("You selected a number that is not prime. Game over!")
-                location.reload();
-           }  
+            } else {
+                    alert("You selected a number that is not prime. Game over!")
+                    location.reload();
+            }  
         }  
-
-
+        
     })
+    // event.target.style.background = 'red';
 }
+
 
 function win() {
     if (count === 5) {
         alert("Nice! Click OK to move on to the next round.");
+        selectedPrimes = [];
         nxtRound();
     } else if (count === 11) {
         alert("Awesome! Moving on to the final round!")
@@ -297,8 +289,3 @@ function win() {
         location.reload()
     }
 }
-
-
-// function noRepeat() {
-//     if (selectedPrimes.includes())
-// }

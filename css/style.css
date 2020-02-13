@@ -6,7 +6,18 @@ html {
      */
 
 }
-
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 50px;
+    width: 700px;
+    height: 800px;
+    font-family: Helvetica, "sans-serif";
+    background-color: rgb(13, 32, 51);
+}
 h1 {
     font-family: 'Nanum Pen Script', cursive;
     font-size: 80px;
@@ -17,7 +28,7 @@ h1 {
 h3 {
     text-align: center;
     font-family: 'Nanum Pen Script', cursive;
-    font-size: 25px;
+    font-size: 20px;
     color: lightyellow;
     font-weight: lighter;
     position: relative;
@@ -38,27 +49,16 @@ img {
     top: -100px;
     right: -310px;
 }
+#definition {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
 #instruction {
     position: relative;
     bottom: 170px;
     font-size: 35px;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    padding-top: 50px;
-    width: 700px;
-    height: 800px;
-    font-family: Helvetica, "sans-serif";
-    background-color: rgb(13, 32, 51);
-}
-
- 
-  #game {
+} 
+#game {
       display: none;
   }
 
@@ -93,19 +93,16 @@ td {
 /* table columns */
   tr td:first-child {
     border-left: 4px solid rgb(85, 123, 134);
-    border-right: 4px solid rgb(85, 123, 134);
+    /* border-right: 4px solid rgb(85, 123, 134); */
   }
-
   tr td:nth-child(2) {
     border-left: 4px solid rgb(85, 123, 134);
     border-right: 4px solid rgb(85, 123, 134);
   }
-
   tr td:nth-child(3) {
     border-left: 4px solid rgb(85, 123, 134);
     border-right: 4px solid rgb(85, 123, 134);
   }
-
   tr td:last-child {
     border-left: 4px solid rgb(85, 123, 134);
     border-right: 4px solid rgb(85, 123, 134);
@@ -116,17 +113,14 @@ td {
     border-top: 4px solid grey;
     /* border-bottom: 4px solid grey; */
   } 
-  
   tr:nth-child(2) td {
     border-top: 4px solid grey;
     /* border-bottom: 4px solid grey; */
   } 
-  
   tr:nth-child(3) td {
     border-top: 4px solid grey;
     /* border-bottom: 4px solid grey; */
   } 
-  
   tr:last-child td {
     border-top: 4px solid grey;
   } 
