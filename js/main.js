@@ -220,7 +220,7 @@ const roundThree = {
 
 // ---------->   RUN FULL GAME HERE   <-----------
 
-function init() {
+function init() {   //must select 5 primes to continue
     playGame.style.display = (playGame.dataset.toggled ^= 1) ? "block" : "none";;
     document.getElementById("page0").remove();
     roundOne.rOneGenerateNum();
@@ -229,14 +229,15 @@ function init() {
     checkForPrime();
 }
 
-function nxtRound() {
-
+function nxtRound() {  //must select all 6 primes to continue
+    resetBoard();
     roundTwo.generateNum();
     roundTwo.assignNum();
     roundTwo.fillBoard();
 }
 
-function finalRound() {
+function finalRound() {   //must select all 7 primes to continue
+    resetBoard();
     roundThree.generateNum();
     roundThree.assignNum();
     roundThree.fillBoard();
@@ -275,17 +276,27 @@ function checkForPrime() {
     // event.target.style.background = 'red';
 }
 
-
 function win() {
     if (count === 5) {
         alert("Nice! Click OK to move on to the next round.");
         selectedPrimes = [];
+        // document.querySelector('td').style.background = "azure";
         nxtRound();
     } else if (count === 11) {
         alert("Awesome! Moving on to the final round!")
+        selectedPrimes = [];
         finalRound();
     } else if (count === 18) {
         alert("Congrats! You've won!")
         location.reload()
     }
+}
+
+function resetBoard() {
+   let tableEls = document.querySelectorAll('td');
+   console.log(tableEls);
+   for (let i = 0; i < tableEls.length; i++) {
+       tableEls[i].style.background = 'azure';
+       tableEls[i].style.cursor = "pointer";
+   }
 }

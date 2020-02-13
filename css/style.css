@@ -62,9 +62,9 @@ img {
       display: none;
   }
 
-  #game.show {
+#game.show {
     display: block;
-  }
+} 
 
 #game-board {
     margin: auto;

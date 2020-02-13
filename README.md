@@ -15,21 +15,17 @@ When I was in elementary school and learning how to type, I used to love playing
 
 **User Story:** 
     1. Upon first page load, user will see the name of the game ("I can't even.."), a definition of prime numbers, and play button.
-    2. After clicking Play, user will see a 4x4 grid filled with random numbers.
+    2. After clicking Play, user will see a 4x4 board filled with random numbers. The objective of the game is to clear all the prime numbers on the board.
 
-        i. For round 1, the numbers will range from 2-25, giving the user the possibility of up to 9 prime numbers. 
+        i. For round 1, the 4x4 grid will display random numbers ranging from 2-25. 
 
-        ii. For round 2, the numbers will range from 2-50, giving the user the possibility of up to 15 prime numbers.
+        ii. For round 2, the numbers will range from 2-50. 
 
-        iii. For round 3, the numbers will range from 2-100, giving the user the possibility of up to 25 prime numbers.
-
-    3. User will click to select the numbers. 
-        i. If user selects a non-prime number, game ends. 
-        ii. If user correctly selects all prime numbers in the grid, game will move on to the next round with increasing difficulty. 
+        iii. For round 3, the numbers will range from 2-100.
 
 
 **Game rules:**
-1. To win, user must correctly select only prime numbers for all 3 rounds. 
+1. To win, user must correctly select all prime numbers for all 3 rounds. 
 2. At any point in the game, if user selects a non-prime number, user loses the game. 
 
 
