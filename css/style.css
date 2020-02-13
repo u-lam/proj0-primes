@@ -1,10 +1,26 @@
-/* html {
+html {
     height: 100vh; 
     margin: auto 0;
-} */
+}
 
+h1 {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 75px;
+    color: #FDDB27FF;
+}
 h3 {
     text-align: center;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
+    color: lightyellow;
+    font-weight: lighter;
+}
+
+#instruction {
+    position: relative;
+    bottom: 30px;
+    font-size: 35px;
 }
 
 body {
@@ -12,28 +28,19 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: auto;
+    padding-top: 50px;
     width: 600px;
     height: 600px;
     font-family: Helvetica, "sans-serif";
+    background-color: rgb(13, 32, 51);
+    /* background-image: url(../images/sunset.jpg); */
+
 }
-
-button {
-    margin-top: 30px;
-    padding: 15px;
-    color: blue;
-    border: 2px double darkorange;
-    border-radius: 15px;
-    font-size: 20px;
-  }
-
-  button:hover {
-      background-color: lightgreen;
-  }
-
   #btnPlay {
     position: relative; 
     left: 263px;
+    bottom: -50px;
     /* margin: 0 auto; */
   }
   #game {
@@ -41,17 +48,22 @@ button {
   }
 
   #game.show {
-      display: block;
+    display: block;
   }
 
-
+#game-board {
+    margin: auto;
+}
 
   /* ======================== GRID ========================================== */
+tr td:hover {
+    background-color: yellow;
+   }
 
 td {
-    height: 100px;
-    width: 100px;
-    border-radius: 25%;
+    height: 80px;
+    width: 80px;
+    border-radius: 30%;
     font-family: Helvetica, "sans-serif";
     font-size: 30px;
     text-align: center;
@@ -60,13 +72,6 @@ td {
 
   }
 
-  /* td div {
-    margin: 0 auto;
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    pointer-events: none;
-  } */
  
 /* table columns */
   tr td:first-child {

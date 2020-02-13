@@ -6,86 +6,87 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>A game of prime numbers</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Sarala:400,700&display=swap" rel="stylesheet">
+
+   
     <script defer src="js/main.js"></script>
 </head>
 
 <body>
-    <h1>I can't even...!</h1>
+    <h1>I can't even..!</h1>
 
-<!-- definition/ need to style -->
     <div id="page0">
-    <h3>Definition: A prime number is any positive integer (except 0 or 1) that is not divisible
+    <h3><b>Definition</b>: A prime number is any positive integer (except 0 or 1) that is not divisible
          without remainder by any other integer except 1 and itself.</h3> 
-    <button id="btnPlay"><b>Play</b></button>
-    <!-- <i class="far fa-play-circle"></i>
-    <span class="fas fa-play-circle"></span> -->
+   
+    
+    <i id="btnPlay" class="far fa-play-circle" style="font-size:60px;color: white;"></i>
 
     </div>
-<!-- On next page after clicking Play, display grid 4x4 , querySelectAll tds and loop it by the class, use alt for index-->
     <div id="game">
+        <h3 id="instruction">Goal: Clear all the prime numbers on the board.</h3>
+        <table id="game-board">
+            <tr>
+                <td id="sq0" value="" class="highlight">
+                    <div></div>
+                </td>
+                <td id="sq1" value="">
+                    <div></div>
+                </td>
+                <td id="sq2" value="">
+                    <div></div>
+                </td>
+                <td id="sq3" value="">
+                    <div></div>
+                </td>
+            </tr>
 
-        <h3>Click to select all the prime numbers on the board.</h3>
-    <table id="game-board">
-        <tr>
-            <td id="sq0" value="">
-                <div></div>
-            </td>
-            <td id="sq1" value="">
-                <div></div>
-            </td>
-            <td id="sq2" value="">
-                <div></div>
-            </td>
-            <td id="sq3" value="">
-                <div></div>
-            </td>
-        </tr>
+            <tr>
+                <td id="sq4">
+                    <div></div>
+                </td>
+                <td id="sq5">
+                    <div></div>
+                </td>
+                <td id="sq6">
+                    <div></div>
+                </td>
+                <td id="sq7">
+                    <div></div>
+                </td>
+            </tr>
 
-        <tr>
-            <td id="sq4">
-                <div></div>
-            </td>
-            <td id="sq5">
-                <div></div>
-            </td>
-            <td id="sq6">
-                <div></div>
-            </td>
-            <td id="sq7">
-                <div></div>
-            </td>
-        </tr>
+            <tr>
+                <td id="sq8">
+                    <div></div>
+                </td>
+                <td id="sq9">
+                    <div></div>
+                </td>
+                <td id="sq10">
+                    <div></div>
+                </td>
+                <td id="sq11">
+                    <div></div>
+                </td>
+            </tr>
 
-        <tr>
-            <td id="sq8">
-                <div></div>
-            </td>
-            <td id="sq9">
-                <div></div>
-            </td>
-            <td id="sq10">
-                <div></div>
-            </td>
-            <td id="sq11">
-                <div></div>
-            </td>
-        </tr>
-
-        <tr>
-            <td id="sq12"> 
-                <div></div>
-            </td>
-            <td id="sq13">
-                <div></div>
-            </td>
-            <td id="sq14">
-                <div></div>
-            </td>
-            <td id="sq15">
-                <div></div>
-            </td>
-        </tr>
-    </table>
+            <tr>
+                <td id="sq12"> 
+                    <div></div>
+                </td>
+                <td id="sq13">
+                    <div></div>
+                </td>
+                <td id="sq14">
+                    <div></div>
+                </td>
+                <td id="sq15">
+                    <div></div>
+                </td>
+            </tr>
+        </table>
     </div>
 
 </body>

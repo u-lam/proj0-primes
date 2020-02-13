@@ -1,23 +1,77 @@
 // VARIABLES
 let count = 0;
+let selectedPrimes = [];
 const lookupPrimes = [ 2,  3,  5,  7, 11, 13, 17, 19,
     23, 29, 31, 37, 41, 43, 47, 53,
     59, 61, 67, 71, 73, 79, 83, 89, 97 ]
 
 
 // BUTTONS & EVENTS
-
-let btn = document.getElementById("btnPlay");
-btn.addEventListener("click", init);
 let playGame = document.getElementById("game");
 let squares = document.querySelectorAll("td");
+let clicks = document.getElementById('game-board')
+let btn = document.getElementById("btnPlay");
+btn.addEventListener("click", init);
 
 
-//NOT SURE HOW TO PUT ALL ROUNDS TOGETHER IN ONE GAME CONST ??
-const game = {
-   
-}
+//NOT SURE HOW TO PUT ALL ROUNDS TOGETHER IN ONE GAME CONST ???????????????????????????????????????
+// const game = {
+//     isPrimeSet: [],
+//     isNotPrimeSet: [],
+//     boardPrimes: [],
+//     boardNotPrimes: [],
+//     boardComplete: [],
+//     checkPrime: function(x) {
+//         for (i = 2; i < x; i++) {  
+//             if (x % i === 0) {  
+//                 return false;
+//             } 
+//         }
+//         return true;
+//     },
+//     assignNum: function() { 
+//         for (let i = 0; i < 5; i++) {
+//             let x = Math.floor(Math.random() * this.isPrimeSet.length);
+//             this.boardPrimes.push(this.isPrimeSet[x]);
+//             this.isPrimeSet.splice(x, 1);
+//         }
+//         for (let j = 0; j < 11; j++) {
+//             let y = Math.floor(Math.random() * this.isNotPrimeSet.length);
+//             this.boardNotPrimes.push(this.isNotPrimeSet[y])
+//             this.isNotPrimeSet.splice(y, 1);
+//         }
+//         this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
+//         this.boardComplete.sort(this.sortfunc);  
+//     },
+//     sortfunc: function(a, b) {
+//         return 0.5 - Math.random();
+//     },
+//     fillBoard: function() {
+//         for (let i = 0; i < 16; i++) {
+//             document.getElementById(`sq${i}`).innerText = this.boardComplete[i]; 
+//             document.getElementById(`sq${i}`).setAttribute('value', this.boardComplete[i]);
+//         }
+//     }, 
+//     startPlay: function (num) {
+//         if (num === 0) {
+//             roundOne.rOneGenerateNum();
+//             this.assignNum();
+//             this.fillBoard();
+//             checkForPrime();
+//         } else if (num === 1) {
+//             roundTwo.generateNum();
+//             this.assignNum();
+//             this.fillBoard();
+//         } else {
+//             roundThree.assignNum();
+//             this.assignNum();
+//             this.fillBoard();
+//         };
+//     },
 
+// }
+// game.startPlay(0);
+// ????????????????????????????????????????????????????????????????????????????????????????????
 
 
 const roundOne = {
@@ -91,7 +145,7 @@ const roundTwo = {
             }
         }
     },
-    assignNum: function() {   // different for each round
+    assignNum: function() {   
         for (let i = 0; i < 6; i++) {
             let x = Math.floor(Math.random() * this.isPrimeSet.length);
             this.boardPrimes.push(this.isPrimeSet[x]);
@@ -115,10 +169,6 @@ const roundTwo = {
         }
     }
 }
-// roundTwo.generateNum();
-// roundTwo.assignNum();
-// roundTwo.fillBoard();
-// console.log(roundTwo.boardComplete);
 
 const roundThree = {
     isPrimeSet: [],
@@ -143,7 +193,7 @@ const roundThree = {
             }
         }
     },
-    assignNum: function() {  // different for each round
+    assignNum: function() {  
         for (let i = 0; i < 7; i++) {
             let x = Math.floor(Math.random() * this.isPrimeSet.length);
             this.boardPrimes.push(this.isPrimeSet[x]);
@@ -163,15 +213,10 @@ const roundThree = {
     fillBoard: function() {
         for (let i = 0; i < 16; i++) {
             document.getElementById(`sq${i}`).innerText = this.boardComplete[i]; 
-            document.getElementById(`sq${i}`).setAttribute(value, `${this.boardComplete[i]}`);
+            document.getElementById(`sq${i}`).setAttribute('value', `${this.boardComplete[i]}`);
         }
     }
 }
-// roundThree.generateNum();
-// roundThree.assignNum();
-// roundThree.fillBoard();
-// console.log(roundThree.boardComplete);
-
 
 // ---------->   RUN FULL GAME HERE   <-----------
 
@@ -188,45 +233,63 @@ function nxtRound() {
     roundTwo.generateNum();
     roundTwo.assignNum();
     roundTwo.fillBoard();
-    
-   
+}
+
+function finalRound() {
+    roundThree.generateNum();
+    roundThree.assignNum();
+    roundThree.fillBoard();
 }
 
 
 
+
+
+//BLOCKERS:
+// 1. how to gray out selected tiles?
+// 2. how to make tile NOT clickable?
+// 3. how to clear the 2 features above for the next round?
+// 4. how to make this DRY?
+
 // FUNCTIONS
-
-//add all items selected to an array and check it against 
-
-//START WORK HERE!!!
 function checkForPrime() {
-    document.getElementById('game-board').addEventListener('click', function(event){
-        console.log(event.target.getAttribute('value'))
-            // console.log(event.target.getAttribute('value'))
+    clicks.addEventListener('click', function xyz(event){
+        console.log(event.target)
+            console.log(event.target.getAttribute('value'))
             if(lookupPrimes.includes(parseInt(event.target.getAttribute('value')))) {
-                
+                selectedPrimes.push(event.target.getAttribute('value'));
+                //event.target.getAttribute('value').setAttribute("disabled", "disabled");
+                console.log(selectedPrimes);
                 count++ ; 
                 console.log(count);
+
+                //gray out td
+                // event.target.style.background = "lightgrey";
+                // event.target.removeEventListener("click", xyz);
+                //and disable it from being clicked
                 
-                //gray out button and disable it from being clicked
-                // event.target.removeAttribute("disabled");
 
                 win();
+               
            } else {
                 alert("You selected a number that is not prime. Game over!")
                 location.reload();
            }
-       
           
     })
     
+    // clicks.removeEventListener('click', event)
 }
 
 function win() {
     if (count === 5) {
         alert("Nice! Click OK to move on to the next round.");
-        count = 0
         nxtRound();
+    } else if (count === 11) {
+        alert("Awesome! Moving on to the final round!")
+        finalRound();
+    } else if (count === 18) {
+        alert("Congrats! You've won!")
+        location.reload()
     }
 }
-
