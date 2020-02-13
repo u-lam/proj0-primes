@@ -13,67 +13,6 @@ let clicks = document.getElementById('game-board')
 let btn = document.getElementById("btnPlay");
 btn.addEventListener("click", init);
 
-
-//NOT SURE HOW TO PUT ALL ROUNDS TOGETHER IN ONE GAME CONST ???????????????????????????????????????
-// const game = {
-//     isPrimeSet: [],
-//     isNotPrimeSet: [],
-//     boardPrimes: [],
-//     boardNotPrimes: [],
-//     boardComplete: [],
-//     checkPrime: function(x) {
-//         for (i = 2; i < x; i++) {  
-//             if (x % i === 0) {  
-//                 return false;
-//             } 
-//         }
-//         return true;
-//     },
-//     assignNum: function() { 
-//         for (let i = 0; i < 5; i++) {
-//             let x = Math.floor(Math.random() * this.isPrimeSet.length);
-//             this.boardPrimes.push(this.isPrimeSet[x]);
-//             this.isPrimeSet.splice(x, 1);
-//         }
-//         for (let j = 0; j < 11; j++) {
-//             let y = Math.floor(Math.random() * this.isNotPrimeSet.length);
-//             this.boardNotPrimes.push(this.isNotPrimeSet[y])
-//             this.isNotPrimeSet.splice(y, 1);
-//         }
-//         this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
-//         this.boardComplete.sort(this.sortfunc);  
-//     },
-//     sortfunc: function(a, b) {
-//         return 0.5 - Math.random();
-//     },
-//     fillBoard: function() {
-//         for (let i = 0; i < 16; i++) {
-//             document.getElementById(`sq${i}`).innerText = this.boardComplete[i]; 
-//             document.getElementById(`sq${i}`).setAttribute('value', this.boardComplete[i]);
-//         }
-//     }, 
-//     startPlay: function (num) {
-//         if (num === 0) {
-//             roundOne.rOneGenerateNum();
-//             this.assignNum();
-//             this.fillBoard();
-//             checkForPrime();
-//         } else if (num === 1) {
-//             roundTwo.generateNum();
-//             this.assignNum();
-//             this.fillBoard();
-//         } else {
-//             roundThree.assignNum();
-//             this.assignNum();
-//             this.fillBoard();
-//         };
-//     },
-
-// }
-// game.startPlay(0);
-// ????????????????????????????????????????????????????????????????????????????????????????????
-
-
 const roundOne = {
     isPrimeSet: [],
     isNotPrimeSet: [],
@@ -243,9 +182,6 @@ function finalRound() {   //must select all 7 primes to continue
     roundThree.fillBoard();
 }
 
-//BLOCKERS:
-// 1.. how to make this DRY?  == weekend project?
-
 // FUNCTIONS
 function checkForPrime() {
     clicks.addEventListener('click', function (event){
@@ -292,3 +228,65 @@ function resetBoard() {
        tableEls[i].style.cursor = "pointer";
    }
 }
+
+
+//BLOCKERS:
+// 1.. how to make this DRY?  == weekend project?
+
+// const game = {
+//     isPrimeSet: [],
+//     isNotPrimeSet: [],
+//     boardPrimes: [],
+//     boardNotPrimes: [],
+//     boardComplete: [],
+//     checkPrime: function(x) {
+//         for (i = 2; i < x; i++) {  
+//             if (x % i === 0) {  
+//                 return false;
+//             } 
+//         }
+//         return true;
+//     },
+//     assignNum: function() { 
+//         for (let i = 0; i < 5; i++) {
+//             let x = Math.floor(Math.random() * this.isPrimeSet.length);
+//             this.boardPrimes.push(this.isPrimeSet[x]);
+//             this.isPrimeSet.splice(x, 1);
+//         }
+//         for (let j = 0; j < 11; j++) {
+//             let y = Math.floor(Math.random() * this.isNotPrimeSet.length);
+//             this.boardNotPrimes.push(this.isNotPrimeSet[y])
+//             this.isNotPrimeSet.splice(y, 1);
+//         }
+//         this.boardComplete = this.boardNotPrimes.concat(this.boardPrimes);
+//         this.boardComplete.sort(this.sortfunc);  
+//     },
+//     sortfunc: function(a, b) {
+//         return 0.5 - Math.random();
+//     },
+//     fillBoard: function() {
+//         for (let i = 0; i < 16; i++) {
+//             document.getElementById(`sq${i}`).innerText = this.boardComplete[i]; 
+//             document.getElementById(`sq${i}`).setAttribute('value', this.boardComplete[i]);
+//         }
+//     }, 
+//     startPlay: function (num) {
+//         if (num === 0) {
+//             roundOne.rOneGenerateNum();
+//             this.assignNum();
+//             this.fillBoard();
+//             checkForPrime();
+//         } else if (num === 1) {
+//             roundTwo.generateNum();
+//             this.assignNum();
+//             this.fillBoard();
+//         } else {
+//             roundThree.assignNum();
+//             this.assignNum();
+//             this.fillBoard();
+//         };
+//     },
+
+// }
+// game.startPlay(0);
+// ????????????????????????????????????????????????????????????????????????????????????????????
