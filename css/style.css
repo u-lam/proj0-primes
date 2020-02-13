@@ -1,25 +1,46 @@
 html {
     height: 100vh; 
     margin: auto 0;
+    /* background-color: black; */
+    /* background-image: url(../images/kw.jpeg);
+     */
+
 }
 
 h1 {
     font-family: 'Nanum Pen Script', cursive;
-    font-size: 75px;
+    font-size: 80px;
     color: #FDDB27FF;
+    position: relative;
+    top: -150px;
 }
 h3 {
     text-align: center;
-    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
     font-family: 'Nanum Pen Script', cursive;
     font-size: 25px;
     color: lightyellow;
     font-weight: lighter;
+    position: relative;
+    bottom: 150px;
 }
-
+img {
+    width: 350px;
+    height: 250px;
+    margin: auto;
+    position: relative;
+    left: 175px;
+    bottom: 175px;
+}
+#btnPlay {
+    font-size: 60px;
+    color: rgb(131, 236, 138);
+    position: relative;
+    top: -100px;
+    right: -310px;
+}
 #instruction {
     position: relative;
-    bottom: 30px;
+    bottom: 170px;
     font-size: 35px;
 }
 
@@ -30,19 +51,13 @@ body {
     align-items: center;
     margin: auto;
     padding-top: 50px;
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 800px;
     font-family: Helvetica, "sans-serif";
     background-color: rgb(13, 32, 51);
-    /* background-image: url(../images/sunset.jpg); */
-
 }
-  #btnPlay {
-    position: relative; 
-    left: 263px;
-    bottom: -50px;
-    /* margin: 0 auto; */
-  }
+
+ 
   #game {
       display: none;
   }
@@ -53,6 +68,8 @@ body {
 
 #game-board {
     margin: auto;
+    position: relative;
+    bottom: 150px;
 }
 
   /* ======================== GRID ========================================== */
@@ -69,7 +86,7 @@ td {
     text-align: center;
     color: rgb(16, 51, 148);
     background-color: azure;
-
+    cursor: pointer;
   }
 
  

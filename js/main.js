@@ -246,8 +246,8 @@ function finalRound() {
 
 
 //BLOCKERS:
-// 1. how to gray out selected tiles?
-// 2. how to make tile NOT clickable?
+// 1. how to gray out selected tiles?  -- use style.background on line 267
+// 2. how to make tile NOT clickable?   -- if statement 
 // 3. how to clear the 2 features above for the next round?
 // 4. how to make this DRY?
 
@@ -256,6 +256,7 @@ function checkForPrime() {
     clicks.addEventListener('click', function xyz(event){
         console.log(event.target)
             console.log(event.target.getAttribute('value'))
+            if (!selectedPrimes.includes(event.target.getAttribute('value'))) {
             if(lookupPrimes.includes(parseInt(event.target.getAttribute('value')))) {
                 selectedPrimes.push(event.target.getAttribute('value'));
                 //event.target.getAttribute('value').setAttribute("disabled", "disabled");
@@ -263,22 +264,25 @@ function checkForPrime() {
                 count++ ; 
                 console.log(count);
 
+
+// if selected prime, include this. If it does not
+// "style = cursor, default"
+
                 //gray out td
                 // event.target.style.background = "lightgrey";
-                // event.target.removeEventListener("click", xyz);
-                //and disable it from being clicked
                 
+        
 
                 win();
                
            } else {
                 alert("You selected a number that is not prime. Game over!")
                 location.reload();
-           }
-          
+           }  
+        }  
+
+
     })
-    
-    // clicks.removeEventListener('click', event)
 }
 
 function win() {
@@ -293,3 +297,8 @@ function win() {
         location.reload()
     }
 }
+
+
+// function noRepeat() {
+//     if (selectedPrimes.includes())
+// }
