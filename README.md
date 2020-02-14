@@ -33,7 +33,8 @@ When I was in elementary school and learning how to type, I used to love playing
  - HTML, CSS, Javascript. 
  - No installation required. 
 
-Click here to check it out: https://u-lam.github.io
+Click here to check it out: https://u-lam.github.io/proj0-primes/
+
 
 
 
