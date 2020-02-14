@@ -35,6 +35,3 @@ When I was in elementary school and learning how to type, I used to love playing
 
 Click here to check it out: https://u-lam.github.io
 
-
-
-
