@@ -10,7 +10,7 @@ When I was in elementary school and learning how to type, I used to love playing
 
 
 **Wireframe:**
- - See "assets/Wireframe.jpeg", "assets/page0.png", and "assets/page1.png"
+
  <img src="assets//Wireframe.jpeg" width="400px" height="600px">
 <br>
  <img src="assets/page0.png" width="500px" height="500px">
